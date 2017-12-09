@@ -9,7 +9,7 @@ import { TodoListService } from '../todo-list.service';
       <h1>
         Welcome to {{ title }}!
       </h1>
-      <todo-input (submit)="addItem($event)"></todo-input>
+      <todo-input class="todo-add" (submit)="addItem($event)"></todo-input>
       <ul>
         <li *ngFor="let item of todoList">
           <todo-item [todoItem]="item" (remove)="removeItem($event)"></todo-item>
@@ -22,14 +22,14 @@ import { TodoListService } from '../todo-list.service';
 export class ListManagerComponent implements OnInit {
   title = 'todo';
   todoList: any[];
-  
+
   ngOnInit() {
     this.todoList = this.todoListService.getTodoList();
   }
 
   constructor(private todoListService: TodoListService) { }
 
-  addItem(title): void {    
+  addItem(title): void {
     this.todoList = this.todoListService.addItem({ title });
   }
 

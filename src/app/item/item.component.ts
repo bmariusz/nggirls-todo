@@ -16,13 +16,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
-  
-  isComplete: boolean = false;
-  
+
+  isComplete = false;
+
   @Input() todoItem: any;
 
-  @Output() remove:EventEmitter<any> = new EventEmitter();
-  
+  @Output() remove: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
@@ -31,7 +31,7 @@ export class ItemComponent implements OnInit {
   removeItem() {
     this.remove.emit(this.todoItem);
   }
-  
+
   completeItem() {
     this.isComplete = !this.isComplete;
   }
